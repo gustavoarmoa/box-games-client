@@ -5,13 +5,57 @@ import Logo from '.'
 
 describe('<Logo />', () => {
   it('should render a white label by default', () => {
+    // deve renderizar um rótulo branco por padrão
     // renderizar o componente (render do reactlibrary)
     // selecionar o elemento que queremos testar com o metdo (screem)
     // exception - assertion - asserção - comparação
 
     renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-      color: '#FAFAFa'
+      color: '#FAFAFA'
     })
+  })
+
+  it('should render a black label when color is pass', () => {
+    // deve renderizar um rótulo preto quando a cor é passada
+    // renderizar o componente (render do reactlibrary)
+    // selecionar o elemento que queremos testar com o metdo (screem)
+    // exception - assertion - asserção - comparação
+
+    renderWithTheme(<Logo color="black" />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
+      color: '#030517'
+    })
+  })
+
+  it('should render a normal logo when size is default', () => {
+    // Testando tamanho da logo grande
+
+    renderWithTheme(<Logo />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
+      width: '11rem'
+    })
+  })
+
+  it('should render a bigger logo', () => {
+    // Testando tamanho da logo grande
+
+    renderWithTheme(<Logo size="large" />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
+      width: '20rem'
+    })
+  })
+
+  it('should render a bigger whitout text if hideOnMobile ', () => {
+    // Testando tamanho da logo grande
+
+    renderWithTheme(<Logo hideOnMobile />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
+      'width',
+      '5.8rem',
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   })
 })
