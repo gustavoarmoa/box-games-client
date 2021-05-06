@@ -7,9 +7,12 @@ export default {
   args: {
     img: 'https://source.unsplash.com/user/willianjusten/1042x580',
     title: 'Defy death',
-    subtitle: '<p>Jogue a nova temporada do <strong>CrashHands</strong>',
+    subtitle: '<p>Jogue a nova temporada <strong>CrashHands</strong></p>',
     buttonLabel: 'Compre agora',
     buttonLink: 'games/defy-death'
+  },
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta
 
