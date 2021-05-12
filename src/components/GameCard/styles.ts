@@ -47,6 +47,9 @@ export const Title = styled.h3`
     0% {
       background-position: -40rem 0;
     }
+    100% {
+      background-position: 40rem 0;
+    }
   }
 `
 
@@ -56,10 +59,6 @@ export const Developer = styled.h4`
     font-weight: ${theme.font.bold};
     color: ${theme.colors.gray};
   `}
-
-  100% {
-    background-position: 40rem 0;
-  }
 `
 
 export const FavButton = styled.div`
