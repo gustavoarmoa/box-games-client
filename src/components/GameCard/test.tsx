@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import theme from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
 
@@ -59,5 +59,22 @@ describe('<GameCard />', () => {
     expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
       textDecoration: 'line-through'
     })
+  })
+
+  it('should render a favorite icon when a favorite is true', () => {
+    // renderizar o componente (com price promotional) // 200 R$ // 15 R$
+    renderWithTheme(<GameCard {...props} favorite />)
+
+    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+  })
+
+  it('should call onFav method when favorite is clicked', () => {
+    // testando um methodo
+    const onFav = jest.fn()
+    renderWithTheme(<GameCard {...props} favorite onFav={onFav} />)
+
+    fireEvent.click(screen.getAllByRole('button')[0])
+
+    expect(onFav).toBeCalled()
   })
 })

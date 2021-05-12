@@ -43,10 +43,11 @@ export const Title = styled.h3`
     color: ${theme.colors.black};
   `}
 
-   @keyframes placeholderShimmer {
+  @keyframes placeholderShimmer {
     0% {
       background-position: -40rem 0;
     }
+  }
 `
 
 export const Developer = styled.h4`
